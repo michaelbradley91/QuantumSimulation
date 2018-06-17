@@ -35,7 +35,7 @@ namespace QuantumSimulation.Tests
 
             var totalProbability = GetTotalProbability(qubit);
 
-            totalProbability.Should().BeApproximately(1, 1000000000);
+            totalProbability.Should().BeApproximately(1, 0.0000000001);
         }
 
         [TestMethod]
@@ -45,7 +45,7 @@ namespace QuantumSimulation.Tests
 
             var totalProbability = GetTotalProbability(qubit);
 
-            totalProbability.Should().BeApproximately(1, 1000000000);
+            totalProbability.Should().BeApproximately(1, 0.0000000001);
         }
 
 
