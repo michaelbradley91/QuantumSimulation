@@ -1,31 +1,55 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantumSimulation", "QuantumSimulation\QuantumSimulation.csproj", "{29BA154F-4088-42F5-8611-468D9E1672CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumSimulation", "QuantumSimulation\QuantumSimulation.csproj", "{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumSimulation.Tests", "QuantumSimulation.Tests\QuantumSimulation.Tests.csproj", "{CABFD812-81E1-4DE9-8671-F905DC19DC51}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{96085F69-291B-4619-96D7-A1C7EBAD0C3E}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Technical", "Technical", "{76462602-B4A1-4797-915E-9285980F030A}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\LICENSE = ..\LICENSE
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{29BA154F-4088-42F5-8611-468D9E1672CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29BA154F-4088-42F5-8611-468D9E1672CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29BA154F-4088-42F5-8611-468D9E1672CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29BA154F-4088-42F5-8611-468D9E1672CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CABFD812-81E1-4DE9-8671-F905DC19DC51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CABFD812-81E1-4DE9-8671-F905DC19DC51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CABFD812-81E1-4DE9-8671-F905DC19DC51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CABFD812-81E1-4DE9-8671-F905DC19DC51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Debug|ARM.ActiveCfg = Debug|ARM
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Debug|ARM.Build.0 = Debug|ARM
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Debug|ARM.Deploy.0 = Debug|ARM
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Debug|x64.ActiveCfg = Debug|x64
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Debug|x64.Build.0 = Debug|x64
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Debug|x64.Deploy.0 = Debug|x64
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Debug|x86.ActiveCfg = Debug|x86
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Debug|x86.Build.0 = Debug|x86
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Debug|x86.Deploy.0 = Debug|x86
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Release|ARM.ActiveCfg = Release|ARM
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Release|ARM.Build.0 = Release|ARM
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Release|ARM.Deploy.0 = Release|ARM
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Release|x64.ActiveCfg = Release|x64
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Release|x64.Build.0 = Release|x64
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Release|x64.Deploy.0 = Release|x64
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Release|x86.ActiveCfg = Release|x86
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Release|x86.Build.0 = Release|x86
+		{C5A470AC-0C2E-436D-9A30-C7FDABB333DE}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {11971D11-B43D-43DB-8A22-A45E394BB520}
+		SolutionGuid = {76413C9E-2D21-4542-8CDD-F81BCFE551D8}
 	EndGlobalSection
 EndGlobal
