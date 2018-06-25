@@ -202,7 +202,7 @@ Mathematically a measurement is represented by a **set of linear matrices**, whi
 
 ![Measurement definition](LatexImages/MeasurementDefinition.gif)
 
-The set of all possible outcomes is represented by ![M](LatexImages/M.gif). If measuring in the computational basis
+The set of all possible outcomes is represented by ![M](LatexImages/M.gif). If measuring in the computational basis for two qubits
 for example, you can think of ![M](LatexImages/M.gif) as
 <sub><sub><sub>![Set of basis vectors](LatexImages/SetOfBasisVectors.gif)</sub></sub></sub>,
 but the cardinality<span style="color:blue"><sup>2</sup></span> of the set is all that really matters.
@@ -210,7 +210,7 @@ but the cardinality<span style="color:blue"><sup>2</sup></span> of the set is al
 The **projection matrices** are applied to a state *q* as follows<span style="color:blue"><sup>3</sup></span>:
 * The probability of a particular outcome is: <sub><sub><sub>![Probability of measurement](LatexImages/ProbabilityOfMeasurement.gif)</sub></sub></sub>
 * The state after a particular outcome is: <sub><sub><sub>![State after measurement](LatexImages/StateAfterMeasurement.gif)</sub></sub></sub><br>
-We have to normalise the state after applying a measurement as the projection matrix is not unitary.
+Note that we have to normalise the state after applying a measurement as the projection matrix is not unitary.
 
 Lastly, it is required that the projection matrices satisfy the **completeness equation**:
 
@@ -257,7 +257,7 @@ always returns `0`, and measuring
 <sub><sub><sub>![One](LatexImages/One.gif)</sub></sub></sub>
 always returns `1`.
 
-Measurements do not have to be restricted to bases. You can read
+Measurements are not restricted to bases. You can read
 more about a [generalisation for measurement, called POVM, here](https://en.wikipedia.org/wiki/POVM).
 However, measurements **can be delayed until the end of a computation**<span style="color:blue"><sup>5</sup></span> and in practice
 are usually in a basis, so I would not worry about this unless you are especially curious!
