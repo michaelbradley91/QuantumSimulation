@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumSimulation", "Quantu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{96085F69-291B-4619-96D7-A1C7EBAD0C3E}"
 	ProjectSection(SolutionItems) = preProject
+		..\DeutschJozsaAlgorithm.md = ..\DeutschJozsaAlgorithm.md
 		..\README.md = ..\README.md
+		..\TheMathsOfSimulatingAQuantumComputer.md = ..\TheMathsOfSimulatingAQuantumComputer.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Technical", "Technical", "{76462602-B4A1-4797-915E-9285980F030A}"

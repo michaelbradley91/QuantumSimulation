@@ -4,8 +4,6 @@ The Deutsch Jozsa algorithm is a really simple Quantum algorithm which can do so
 than any classical computer can today! This page will try to explain the steps
 concretely so you can see exactly **how and why it works**.
 
-
-
 ### Caution
 
 Please read [the Maths of Simulating a Quantum Computer](TheMathsOfSimulatingAQuantumComputer) if you
