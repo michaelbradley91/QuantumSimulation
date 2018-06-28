@@ -9,7 +9,7 @@ I will focus more on details which are assumed there, but you may want to read t
 
 #### Caution
 
-Please read [the Maths of Simulating a Quantum Computer](TheMathsOfSimulatingAQuantumComputer) if you
+Please read [the Maths of Simulating a Quantum Computer](TheMathsOfSimulatingAQuantumComputer.md) if you
 are new to Quantum computing. Quantum algorithms are quite Mathematical so you will want to be
 comfortable with the basics before proceeding!
 
