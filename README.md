@@ -11,11 +11,11 @@ So I'm looking for a way to express Quantum algorithms more intuitively.
 
 ## Links
 
-##### [The Maths of Simulating a Quantum Computer](TheMathsOfSimulatingaQuantumComputer.md)
+#### [The Maths of Simulating a Quantum Computer](TheMathsOfSimulatingAQuantumComputer.md)
 * Basic **Mathematics** involved in Quantum Algorithms.
 * Explains enough for you to write your own simulator!
 
-##### [Deutsch Jozsa Algorithm](DeutschJozsaAlgorithm.md)
+#### [Deutsch Jozsa Algorithm](DeutschJozsaAlgorithm.md)
 * Explains a really simple quantum algorithm in detail.
 * Demonstrates how to construct a **Quantum Oracle**.<span style="color:blue"><sup>1</sup></span>
 * Builds on the "Maths of Simulating a Quantum Computer" with a concrete example.
