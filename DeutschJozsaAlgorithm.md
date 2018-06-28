@@ -40,7 +40,7 @@ likely we will identify that <sub><sub>![f](LatexImages/f.gif)</sub></sub> is ba
 constant if we do not see different return values quickly. This problem is actually in **Bounded error Probabilistic
 Polynomial Time**, or <a href="https://en.wikipedia.org/wiki/BPP_(complexity)">BPP which you can read about here</a>.<br>
 <span style="color:blue"><sup>2</sup></span> Quantum computers have not been **proven** to be more powerful
-than classical computers in a complexitly class sense. However, most scientists believe this to be the case. In fact,
+than classical computers in a complexity class sense. However, most scientists believe this to be the case. In fact,
 a proof might be online since I wrote this!
 
 ## Building the Quantum Oracle
@@ -54,7 +54,7 @@ Specifically, the Deutsch Jozsa algorithm requires that:
 
 Where <sub><sub><sub><sub>![x in {0,1}^n](LatexImages/xInZeroOneToTheN.gif)</sub></sub></sub></sub>
 and <sub><sub><sub><sub>![y in {0,1}](LatexImages/yInZeroOne.gif)</sub></sub></sub></sub>
-and <sub>![Addition modulo 2](LatexImages/oplus.gif)</sub> addition modulo two.
+and <sub>![Addition modulo 2](LatexImages/oplus.gif)</sub> is addition modulo two.
 
 So <sub><sub><sub><sub><sub><sub>![Uf](LatexImages/Uf.gif)</sub></sub></sub></sub></sub></sub>
 leaves all of the first `n` **input qubits** untouched, and sets its **result** in the `n+1` qubit by adding its return
@@ -120,9 +120,9 @@ that always returns `1`, our Oracle would be:
 
 ![Example Oracle](LatexImages/ExampleDeutschJozsaOracle.gif)
 
-I've labelled the rows and columns to correspond to the basis states. For example, the row labelled `000` will act
+I've labelled the rows and columns to correspond to the basis states. For example, the column labelled `000` will act
 on the basis state <sub><sub><sub><sub><sub>![|000>](LatexImages/ZeroZeroZero.gif)</sub></sub></sub></sub></sub>,
-and set it to the basis state in the column with a `1`, in this case
+and set it to the basis state in the row with a `1`, in this case
 <sub><sub><sub><sub><sub>![|001>](LatexImages/ZeroZeroOne.gif)</sub></sub></sub></sub></sub>. This is correct,
 since we have <sub><sub><sub><sub><sub>![x is |00>](LatexImages/xIsZeroZero.gif)</sub></sub></sub></sub></sub>
 and <sub><sub><sub><sub><sub>![y is |0>](LatexImages/yIsZero.gif)</sub></sub></sub></sub></sub> so:
@@ -132,13 +132,114 @@ and <sub><sub><sub><sub><sub>![y is |0>](LatexImages/yIsZero.gif)</sub></sub></s
 You can verify some other values if you like; they should all work!
 
 In general, any Oracle can be constructed from a classical function
-in this way, where each row contains the scalars
+in this way, where each column contains the scalars
 <sub><sub>![Lambda in complex number space](LatexImages/LambdaInComplex.gif)</sub></sub>
 corresponding to the **basis state decomposition of the result**. In our case,
 each result is exactly a single basis state so the rows are very simple.
 
 <span style="color:blue"><sup>1</sup></span>This is specifically for our matrix representation, but we could
 also write this in Dirac notation. This law is not specific to matrices or vectors.
+
+## The Solution
+
+Now we have the quantum Oracle <sub><sub><sub><sub><sub><sub>![Uf](LatexImages/Uf.gif)</sub></sub></sub></sub></sub></sub>,
+we can implement the full sequence of quantum gates for the Deutsch Jozse algorithm:
+
+![Deutsch Jozse algorithm](LatexImages/DeutschJozseEquation.gif)
+
+Or as a diagram copied from [Wikipedia](https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa_algorithm):
+
+![Deutsch Jozse diagram](Diagrams/DeutschJozseAlgorithm.png)
+
+Measurement is performed after this in the computational basis:
+* If the first `n` qubits are all zero, then <sub><sub>![f](LatexImages/f.gif)</sub></sub> is constant.
+* Otherwise, <sub><sub>![f](LatexImages/f.gif)</sub></sub> is balanced.
+
+To understand why this works we need to step through the algorithm.
+
+### Step 1 - Create the Superposition
+
+The algorithm begins with qubits initialised to
+<sub><sub><sub><sub><sub><sub>![Initial state](LatexImages/DeutschJozseInitialState.gif)</sub></sub></sub></sub></sub></sub>
+. The final qubit is <sub><sub><sub><sub><sub><sub>![One](LatexImages/One.gif)</sub></sub></sub></sub></sub></sub>
+because it avoids an extra quantum gate. Of course, it could also be
+<sub><sub><sub><sub><sub><sub>![Zero](LatexImages/Zero.gif)</sub></sub></sub></sub></sub></sub> and then we could apply
+a `NOT` gate just to that qubit.
+
+We then need to apply ![H^(n+1)](LatexImages/nPlusOneHadamardGates.gif) to this state. The Hadamard gate
+turns a <sub><sub><sub><sub><sub><sub>![Zero](LatexImages/Zero.gif)</sub></sub></sub></sub></sub></sub>
+or <sub><sub><sub><sub><sub><sub>![One](LatexImages/One.gif)</sub></sub></sub></sub></sub></sub>
+qubit into a qubit that has an equal chance of being a `0` or `1` when measured, or specifically:
+
+<img src="LatexImages/HadamardZeroMap.gif" style="vertical-align: middle;"></img>&nbsp;
+and &nbsp; <img src="LatexImages/HadamardOneMap.gif" style="vertical-align: middle;"></img>
+
+By doing this, we are preparing to apply
+<sub><sub><sub><sub><sub><sub>![Uf](LatexImages/Uf.gif)</sub></sub></sub></sub></sub></sub>
+to all possible ![x](LatexImages/x.gif) at once<span style="color:blue"><sup>1</sup></span>.
+
+This gives us the state:
+
+![First step](LatexImages/DeutschJozseFirstStep.gif)
+
+The sum on the right hand side of the equation just says that we have every possible `n` qubit basis
+state included, so it relies on this equation:
+
+![Hadamard equation](LatexImages/HadamardEquation.gif)
+
+You can prove this by induction if you like, but just to confirm the intuition, let's check this for two qubits:
+
+![Hadamard equation for two qubits](LatexImages/HadamardEquationTwoQubits.gif)
+
+Above I have omitted <sub>![times](LatexImages/otimes.gif) </sub> for brevity. You will see the tensor product symbol
+omitted in many equations in other documents online. Essentially, if two quantum states are next to each other,
+just imagine this symbol between them. It is very much like how we often write multiplication without the multiply symbol, so
+<sub>![omit multiply](LatexImages/OmitMultiplication.gif)</sub>.
+
+
+Now we have the superposition prepared, we are ready to...
+
+<span style="color:blue"><sup>1</sup></span>With a bit of imagination anyway!
+
+### Step 2 - Apply the Oracle
+
+All we do here is apply <sub><sub><sub><sub><sub><sub>z![Uf](LatexImages/Uf.gif)</sub></sub></sub></sub></sub></sub>
+to the state we had above and simplify. Remember that:
+
+![Deutsch Jozsa Oracle](LatexImages/DeutschJozsaOracle.gif)
+
+So applying this Quantum gate yields:
+
+![Application of Oracle](LatexImages/DeutschJozseApplyingOracle.gif)
+
+This is a good start, but we'd like to have an equation where all the qubit states are written as
+<sub><sub><sub><sub><sub><sub>![Zero](LatexImages/Zero.gif)</sub></sub></sub></sub></sub></sub> or
+<sub><sub><sub><sub><sub><sub>![One](LatexImages/One.gif)</sub></sub></sub></sub></sub></sub>. Otherwise,
+if we try to apply a gate to <sub><sub><sub><sub><sub><sub>![f(x)](LatexImages/fOfX.gif)</sub></sub></sub></sub></sub></sub>
+we will need to consider what happens when the function returns `1` and when it returns `0` which doubles
+the size of the equation.
+
+Thankfully, we can simplify this further by considering the two cases right now:
+
+![Difficult Part](LatexImages/DifficultPartOfDeutschJozseAlgorithm.gif)<br>
+<sub>If you are struggling to follow line 4, note that many of the terms of each sum are zero.</sub>
+
+Phew! That was the difficult part of the Deutsch Jozse algorithm!
+
+### Step 3 - Prepare for Measurement
+
+If we try to measure in the computational basis right now, we will get a random result since our equation
+roughly says any state is possible! Intuitively, this is because we are still in our **superposition
+from Step 1**.
+
+We can undo this by reapplying the Hadamard gate since ![Hadamard self inverse](LatexImages/HadamardSelfInverse.gif). You will
+see in other explanations that we can ignore the `n+1` qubit, which is true, but to avoid confusion I will apply
+the Hadamard gate to this qubit as well. This results in:
+
+![Preparing for measurement](LatexImages/DeutschJozsePrepareForMeasurement.gif)
+
+Where <sub><sub><sub>![Sum of bitwise product](LatexImages/SumOfBitwiseProduct.gif)</sub></sub></sub>
+is the sum of the bitwise product.
 
 ## Resources
 
