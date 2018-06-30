@@ -48,3 +48,4 @@ explanations for Deutsch's and Grover's algorithms.
 * https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa_algorithm - Deutsch Jozsa algorithm.
 * https://www.scottaaronson.com/blog/?p=208 - intuitive explanation for Shor's algorithm.
 * https://en.wikipedia.org/wiki/POVM - POVMs - measurements in depth.
+* https://en.wikipedia.org/wiki/BPP_(complexity) - Bounded error Probabilistic Polynomial time or BPP.
