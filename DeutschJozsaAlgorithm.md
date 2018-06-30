@@ -193,7 +193,7 @@ You can prove this by induction if you like, but just to confirm the intuition, 
 
 Above I have omitted <sub>![times](LatexImages/otimes.gif) </sub> for brevity. You will see the tensor product symbol
 omitted in many equations in other documents online. Essentially, if two quantum states are next to each other,
-just imagine this symbol between them. It is very much like how we often write multiplication without the multiply symbol, so
+just imagine <sub>![otimes](LatexImages/otimes.gif)</sub> between them. It is very much like how we often write multiplication without the multiply symbol, so
 <sub>![omit multiply](LatexImages/OmitMultiplication.gif)</sub>.
 
 
@@ -239,7 +239,85 @@ the Hadamard gate to this qubit as well. This results in:
 ![Preparing for measurement](LatexImages/DeutschJozsePrepareForMeasurement.gif)
 
 Where <sub><sub><sub>![Sum of bitwise product](LatexImages/SumOfBitwiseProduct.gif)</sub></sub></sub>
-is the sum of the bitwise product.
+is the sum of the bitwise product (modulo two). To clarify, the above relies on this being true:
+
+![Hadamard equation generalised](LatexImages/HadamardEquationGeneralised.gif)
+
+For every <sub><sub><sub>![x in {0,1}^n](LatexImages/xInZeroOneToTheN.gif)</sub></sub></sub>. This is a generalisation
+of the earlier equation for the Hadamard gate where ![x](LatexImages/x.gif) was all zeroes. The only difference
+now is that some of the states will have a negative sign, but exactly when? Let us take a look
+at a 3 qubit example:
+
+![Hadaamrd equation on 3 qubits](LatexImages/HadamardEquation3Qubits.gif)
+
+With this example in mind, we can see that:
+* All <sub><sub><sub>![Zero](LatexImages/Zero.gif)</sub></sub></sub>s are positive, so if
+<sub><sub>![y_i](LatexImages/yi.gif)</sub></sub> is zero, this part of <sub><sub>![y](LatexImages/y.gif)</sub></sub>
+definitely did not flip the sign.
+* If <sub><sub>![y_i](LatexImages/yi.gif)</sub></sub> is <sub><sub><sub>![One](LatexImages/One.gif)</sub></sub></sub>
+either:
+  * This came from a <sub><sub><sub>![|0> + |1>](LatexImages/ZeroPlusOne.gif)</sub></sub></sub> component
+, which is exactly when the corresponding <sub><sub>![x_i](LatexImages/xi.gif)</sub></sub> is
+<sub><sub><sub>![Zero](LatexImages/Zero.gif)</sub></sub></sub> and so does not flip the sign.
+  * This came from a <sub><sub><sub>![|0> - |1>](LatexImages/ZeroMinusOne.gif)</sub></sub></sub> component
+, which is exactly when the corresponding <sub><sub>![x_i](LatexImages/xi.gif)</sub></sub> is
+<sub><sub><sub>![One](LatexImages/One.gif)</sub></sub></sub> and so **does flip the sign**.
+
+So we only need to flip the sign of the state when both <sub><sub>![x_i](LatexImages/xi.gif)</sub></sub>
+and <sub><sub>![y_i](LatexImages/yi.gif)</sub></sub> are `1`. This corresponds to adding `1` modulo two in
+our sum of the bitwise product. If the sum is odd, the equation makes the state negative, and if it is even
+the state will be positive, which is exactly what we want.
+
+Hopefully that explains why we have the final state before measurement of:
+
+![Deutsch Jozse State Before Measurement](LatexImages/DeutschJozseStateBeforeMeasurement.gif)
+
+But go ahead and rigourously prove the equation if you like!
+
+### Step 4 - Measurement
+
+We are going to measure in the computational basis <sub><sub><sub>![Zero](LatexImages/Zero.gif)</sub></sub></sub>,
+<sub><sub><sub>![One](LatexImages/One.gif)</sub></sub></sub> as normal, but what will we find?
+
+We could apply projection matrices<span style="color:blue"><sup>1</sup></span> to the equation from Step 3,
+but that would be needlessly complicated.
+We can rewrite the equation in a particularly useful form as follows:
+
+![Deutsch Jozse Basis Decomposition](LatexImages/DeutschJozseConvenientMeasurement.gif)
+
+This equation tells us exactly the **basis decomposition of our state**. This means the terms of the outer sum
+tell us how much each basis state contributes to the whole state, telling us our probabilities. In other words,
+given a two qubit state written in this form:
+
+![Labelled Two Qubit Decomposition](LatexImages/LabelledTwoQubitDecomposition.gif)
+
+The probabilitiy of measuring
+<sub><sub><sub><sub><sub>![|00>](LatexImages/ZeroZero.gif)</sub></sub></sub></sub></sub>
+is exactly <sub><sub>![|lambda_1|^2](LatexImages/Lambda1Squared.gif)</sub></sub>, the
+probabilitiy of measuring
+<sub><sub><sub><sub><sub>![|01>](LatexImages/ZeroOne.gif)</sub></sub></sub></sub></sub>
+is exactly <sub><sub>![|lambda_2|^2](LatexImages/Lambda2Squared.gif)</sub></sub>, and so on.
+
+The final step in the Deutsch Jozse algorithm is to determine if the first `n` qubits, when measured, are all zero. Noting that
+the final qubit is always one, the probability is:
+
+![Deutsch Josze Probability of Zeroes](LatexImages/DeutschJoszeProbabilityOfZeroes.gif)
+
+Which comes from the term where <sub><sub><sub>![y](LatexImages/y.gif)</sub></sub></sub> is all zeroes
+in our state. Considering our function, we know that:
+* If the function is constant, then this will be one, since all ![2^n](LatexImages/2ToTheN.gif)
+terms will be one or minus one. This means the first `n` qubits **will definitely be zero**. This is
+known as **constructive interference**.
+* If the function is balanced, all the terms will cancel out and so the probability will be zero.
+Therefore, at least one of the `n` qubits **will not be zero**. This is known as **destructive interference**.
+
+And that is it; we have proven that the Deutsch Josze algorithm works! Congratulations if you followed
+all of that - you know the ins and outs of a real Quantum algorithm<span style="color:blue"><sup>2</sup></span>! :+1:
+
+
+<span style="color:blue"><sup>1</sup></span>See [the Maths of Simulating a Quantum Computer](TheMathsOfSimulatingAQuantumComputer.md)
+for more details on how to model measurement as a set of matrices.<br>
+<span style="color:blue"><sup>2</sup></span>As much as I do anyway!
 
 ## Resources
 
