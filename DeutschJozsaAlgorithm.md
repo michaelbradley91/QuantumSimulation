@@ -87,9 +87,6 @@ with <sub><sub>![y](LatexImages/y.gif)</sub></sub> set to zero, and so just see 
 is roughly why this is a good definition for the Oracle, and you may see this sort of definition in other
 Quantum algorithms too.
 
-<sub>This may not reflect the thoughts that went through David Deutsch's and Richard Jozsa's minds but I hope it helped
-your understanding!</sub>
-
 #### How is the Oracle represented Mathematically?
 
 From the reasoning above, I hope you feel confident a quantum gate exists for
@@ -203,7 +200,7 @@ Now we have the superposition prepared, we are ready to...
 
 ### Step 2 - Apply the Oracle
 
-All we do here is apply <sub><sub><sub><sub><sub><sub>z![Uf](LatexImages/Uf.gif)</sub></sub></sub></sub></sub></sub>
+All we do here is apply <sub><sub><sub><sub><sub><sub>![Uf](LatexImages/Uf.gif)</sub></sub></sub></sub></sub></sub>
 to the state we had above and simplify. Remember that:
 
 ![Deutsch Jozsa Oracle](LatexImages/DeutschJozsaOracle.gif)
@@ -281,7 +278,7 @@ We are going to measure in the computational basis <sub><sub><sub>![Zero](LatexI
 
 We could apply projection matrices<span style="color:blue"><sup>1</sup></span> to the equation from Step 3,
 but that would be needlessly complicated.
-We can rewrite the equation in a particularly useful form as follows:
+We can rewrite the equation in a particularly useful way as follows:
 
 ![Deutsch Jozse Basis Decomposition](LatexImages/DeutschJozseConvenientMeasurement.gif)
 
@@ -324,3 +321,5 @@ for more details on how to model measurement as a set of matrices.<br>
 Some useful resources I found while learning about Quantum Computing:
 * https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa_algorithm - Deutsch Jozsa algorithm.
 * https://en.wikipedia.org/wiki/BPP_(complexity) - Bounded error Probabilistic Polynomial time or BPP.
+
+See the [README](README.md) for all the resources collected together.
